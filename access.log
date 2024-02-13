@@ -1,0 +1,478 @@
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git
+$ touch practice.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git
+$ git init
+Initialized empty Git repository in C:/Users/shiva/Desktop/practice/git/.git/
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (master)
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git 
+$ git init -b main
+Initialized empty Git repository in C:/Users/shiva/Desktop/practice/git/.git/
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        practice.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git add practice.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)       
+        new file:   practice.txt
+
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git commit -m"test"
+[main (root-commit) e7fe057] test
+ 1 file changed, 1 insertion(+)
+ create mode 100644 practice.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git log
+commit e7fe05721fa4e2e119e6d7a7e6ac60e2b74f47bc (HEAD -> main)
+Author: Shivandru <shivandru.singh045@gmail.com>     
+Date:   Wed Feb 14 00:01:28 2024 +0530
+
+    test
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   practice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git add practice.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git log
+commit e7fe05721fa4e2e119e6d7a7e6ac60e2b74f47bc (HEAD -> main)
+Author: Shivandru <shivandru.singh045@gmail.com>     
+Date:   Wed Feb 14 00:01:28 2024 +0530
+
+    test
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git commit -m"second"
+[main d55376d] second
+ 1 file changed, 1 insertion(+), 1 deletion(-)       
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git log
+commit d55376d772d7487e6b97950318f093d1e544fa92 (HEAD -> main)
+Author: Shivandru <shivandru.singh045@gmail.com>     
+Date:   Wed Feb 14 00:09:46 2024 +0530
+
+    second
+
+commit e7fe05721fa4e2e119e6d7a7e6ac60e2b74f47bc      
+Author: Shivandru <shivandru.singh045@gmail.com>     
+Date:   Wed Feb 14 00:01:28 2024 +0530
+
+    test
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git diff
+diff --git a/practice.txt b/practice.txt
+index fcbd7d7..ddd8990 100644
+--- a/practice.txt
++++ b/practice.txt
+@@ -1 +1,2 @@
+-Hello world !!
+\ No newline at end of file
++Hello world !!
++Greettings
+\ No newline at end of file
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git add practice.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git commit -m"final commit"
+[main 2ce99f3] final commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)      
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git push origin main
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.        
+
+Please make sure you have the correct access rights  
+and the repository exists.
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git branch -M main
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git remote add origin https://github.com/Shivandru/practice.git
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (9/9), 699 bytes | 63.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0 
+To https://github.com/Shivandru/practice.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git checkout feature1
+error: pathspec 'feature1' did not match any file(s) known to git
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git checkout -b feature1
+Switched to a new branch 'feature1'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git branch
+* feature1
+  main
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git status
+On branch feature1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   practice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git commit -m"added branch"
+On branch feature1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   practice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git add practice.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git commit -m"branching"
+[feature1 dee53b7] branching
+ 1 file changed, 3 insertions(+), 1 deletion(-)      
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.        
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git add admin.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git status
+On branch feature1
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)  
+        new file:   admin.txt
+
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git commit -m"fileadded"
+[feature1 821b442] fileadded
+ 1 file changed, 1 insertion(+)
+ create mode 100644 admin.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git push origin feature1
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 560 bytes | 80.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 
+remote: 
+remote: Create a pull request for 'feature1' on GitHub by visiting:
+remote:      https://github.com/Shivandru/practice/pull/new/feature1
+remote:
+To https://github.com/Shivandru/practice.git
+ * [new branch]      feature1 -> feature1
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.        
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git merge
+Already up to date.
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git switch feature1
+Switched to branch 'feature1'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.        
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git switch feature1
+Switched to branch 'feature1'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git add admin.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git commit -m"merge"
+On branch feature1
+nothing to commit, working tree clean
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git push origin feature
+error: src refspec feature does not match any
+error: failed to push some refs to 'https://github.com/Shivandru/practice.git'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git push origin feature1
+Everything up-to-date
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git status
+On branch feature1
+nothing to commit, working tree clean
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.        
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git merge
+Already up to date.
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git merge feature1
+Updating 2ce99f3..821b442
+Fast-forward
+ admin.txt    | 1 +
+ practice.txt | 4 +++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)     
+ create mode 100644 admin.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git switch feature1
+Switched to branch 'feature1'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git add admin.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git status
+On branch feature1
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)  
+        modified:   admin.txt
+
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git commit -m"concept"
+[feature1 46dcbc2] concept
+ 1 file changed, 2 insertions(+), 1 deletion(-)      
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git push origin feature1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 320 bytes | 320.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 
+To https://github.com/Shivandru/practice.git
+   821b442..46dcbc2  feature1 -> feature1
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.  
+  (use "git push" to publish your local commits)     
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git pull origin
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 889 bytes | 222.00 KiB/s, done.
+From https://github.com/Shivandru/practice
+   2ce99f3..6bfa45f  main       -> origin/main       
+Updating 821b442..6bfa45f
+Fast-forward
+ admin.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)      
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git switch feature1
+Switched to branch 'feature1'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.        
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git commit -a -m"examples"
+On branch main
+Your branch is up to date with 'origin/main'.        
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        examples.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git add examples.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.        
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)  
+        new file:   examples.txt
+
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git commit -m"newFile"
+[main 11be6fe] newFile
+ 1 file changed, 1 insertion(+)
+ create mode 100644 examples.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 337 bytes | 337.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 
+To https://github.com/Shivandru/practice.git
+   6bfa45f..11be6fe  main -> main
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git switch feature1
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git pull origin main
+From https://github.com/Shivandru/practice
+ * branch            main       -> FETCH_HEAD
+Updating 46dcbc2..11be6fe
+Fast-forward
+ examples.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 examples.txt
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git commit -a -m"some changes"
+[feature1 5e45fc3] some changes
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git push origin feature1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Shivandru/practice.git
+   46dcbc2..5e45fc3  feature1 -> feature1
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git merge feature1
+Updating 11be6fe..5e45fc3
+Fast-forward
+ examples.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git commit -a -m "changes"
+[main 117fbed] changes
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 356 bytes | 356.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Shivandru/practice.git
+   11be6fe..117fbed  main -> main
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git switch feature1
+Switched to branch 'feature1'
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git pull origin main
+From https://github.com/Shivandru/practice
+ * branch            main       -> FETCH_HEAD
+Updating 5e45fc3..117fbed
+Fast-forward
+ examples.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git commit -a -m "changes from branch"
+[feature1 ad91dd9] changes from branch
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (feature1)
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$ git merge feature1
+Updating 117fbed..ad91dd9
+Fast-forward
+ examples.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+shiva@LAPTOP-2NRT4RKR MINGW64 ~/Desktop/practice/git (main)
+$
